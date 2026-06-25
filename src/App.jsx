@@ -41,13 +41,21 @@ export default function App() {
         <SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />
       </div>
       <ScrollContainer className="row scroll-cotainer">
-        <MovieList movies={movies} handleClick={addFavouriteMovie} />
+        <MovieList
+          movies={movies}
+          handleClick={addFavouriteMovie}
+          addMovie={true}
+        />
       </ScrollContainer>
       <div className="row align-items-center my-4">
         <MovieListHeading heading="내 선호작" />
       </div>
       <ScrollContainer className="row scroll-cotainer">
-        <MovieList movies={favourites} handleClick={addFavouriteMovie} />
+        <MovieList
+          movies={favourites}
+          handleClick={addFavouriteMovie}
+          addMovie={false}
+        />
       </ScrollContainer>
     </div>
   );

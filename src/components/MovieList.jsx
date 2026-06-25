@@ -1,4 +1,4 @@
-export default function MovieList({ movies, handleClick }) {
+export default function MovieList({ movies, handleClick, addMovie }) {
   return (
     <>
       {movies.map((movie) => (
@@ -8,8 +8,10 @@ export default function MovieList({ movies, handleClick }) {
             onClick={() => handleClick(movie)}
             className="overlay d-flex align-items-center justify-content-center"
           >
-            <span className="me-2">선호작 추가</span>
-            <span>❤️</span>
+            <span className="me-2">
+              {addMovie ? "선호작 추가" : "선호작 제거"}
+            </span>
+            <span>{addMovie ? "❤️" : "❌"}</span>
           </div>
         </div>
       ))}
