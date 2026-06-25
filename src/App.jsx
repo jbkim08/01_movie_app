@@ -8,6 +8,8 @@ import MovieListHeading from "./components/MovieListHeading";
 
 export default function App() {
   const [movies, setMovies] = useState([]);
+  const [searchValue, setSearchValue] = useState("");
+
   const getMovieRequest = async (searchValue) => {
     const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=2302757e`;
     const response = await fetch(url);
@@ -23,7 +25,7 @@ export default function App() {
     <div className="container-fluid movie-app">
       <div className="row align-items-center my-4">
         <MovieListHeading heading="영화 검색" />
-        <SearchBox />
+        <SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />
       </div>
       <div className="row">
         <MovieList movies={movies} />
