@@ -15,12 +15,12 @@ export default function App() {
     const response = await fetch(url);
     //console.log(response); //서버로 요청후 http 통신으로 받는 데이터(Jason 문자열)
     const data = await response.json(); //자바스크립트 객체로 변환
-    setMovies(data.Search);
+    if (data.Search) setMovies(data.Search);
   };
   //getMovieRequest(); //함수 여기서 실행하면???? => 리렌더링 될때마다 실행됨
   useEffect(() => {
-    getMovieRequest("amazing");
-  }, []); //처음 한번만
+    if (searchValue.length > 3) getMovieRequest(searchValue);
+  }, [searchValue]); //검색어가 바뀔때마다 요청함
   return (
     <div className="container-fluid movie-app">
       <div className="row align-items-center my-4">
