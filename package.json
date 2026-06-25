@@ -12,7 +12,8 @@
   "dependencies": {
     "bootstrap": "^5.3.8",
     "react": "^19.2.7",
-    "react-dom": "^19.2.7"
+    "react-dom": "^19.2.7",
+    "react-indiana-drag-scroll": "^2.2.1"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

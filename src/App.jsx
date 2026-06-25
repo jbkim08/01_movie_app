@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import SearchBox from "./components/SearchBox";
 import MovieListHeading from "./components/MovieListHeading";
+import ScrollContainer from "react-indiana-drag-scroll";
 
 export default function App() {
   const [movies, setMovies] = useState([]);
@@ -27,9 +28,9 @@ export default function App() {
         <MovieListHeading heading="영화 검색" />
         <SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />
       </div>
-      <div className="row">
+      <ScrollContainer className="row scroll-cotainer">
         <MovieList movies={movies} />
-      </div>
+      </ScrollContainer>
     </div>
   );
 }
