@@ -46,6 +46,9 @@ export default function App() {
       <div className="row align-items-center my-4">
         <MovieListHeading heading="내 선호작" />
       </div>
+      <ScrollContainer className="row scroll-cotainer">
+        <MovieList movies={favourites} handleClick={addFavouriteMovie} />
+      </ScrollContainer>
     </div>
   );
 }
