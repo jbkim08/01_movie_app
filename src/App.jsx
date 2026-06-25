@@ -23,6 +23,14 @@ export default function App() {
     setFavourites(newList); //선호작 업데이트
     saveToLocalStorage(newList); //로컬스토리지 저장
   };
+  //선호작 제거하기
+  const removeMovie = (movie) => {
+    const newList = favourites.filter(
+      (favourite) => favourite.imdbID !== movie.imdbID,
+    );
+    setFavourites(newList);
+    saveToLocalStorage(newList);
+  };
   const getMovieRequest = async (searchValue) => {
     const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=2302757e`;
     const response = await fetch(url);
@@ -53,7 +61,7 @@ export default function App() {
       <ScrollContainer className="row scroll-cotainer">
         <MovieList
           movies={favourites}
-          handleClick={addFavouriteMovie}
+          handleClick={removeMovie}
           addMovie={false}
         />
       </ScrollContainer>
