@@ -19,6 +19,10 @@ export default function App() {
   };
   //선호작을 추가하기
   const addFavouriteMovie = (movie) => {
+    if (favourites.some((f) => f.imdbID == movie.imdbID)) {
+      alert("이미 있어요!");
+      return; //이미 선호작에 있으므로 바로 종료!
+    }
     const newList = [...favourites, movie]; //기존 선호작에 추가로 새 영화
     setFavourites(newList); //선호작 업데이트
     saveToLocalStorage(newList); //로컬스토리지 저장
